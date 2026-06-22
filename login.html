@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issues Tracker | Login page</title>
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+
+     <!-- tailwind + daisy -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+    </script>
+
+    <!-- font awesome for icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- font intregation from google fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body class="min-h-screen max-w-screen  bg-base-200 mx-auto">
+    <!-- Login Page from Daisy UI-->
+    <div class="p-9 mx-auto flex justify-center ">
+       <fieldset class="fieldset bg-white border-base-300 rounded-box w-100 border p-4">
+        <!--Github Logo -->
+        <!-- step-01 : -->
+         <div class="p-2 mx-auto w-[80px]">
+            <img src="./assets/github-logo.png" alt="">
+        </div>
+        <!-- Status -->
+        <div class="text-center">
+            <h2 class="font-semibold text-xl">GitHub Issues Tracker</h2>
+            <p class="text-[#64748B]">Sign in to manage your issues</p>
+        </div>
+
+        <!-- From part -->
+         <!-- Step-02 : -->
+
+          <!-- Username part-->
+     <label class="font-bold">Username</label>
+    <input  id="username_input" maxlength="5" minlength="5" type="text" class="input w-full rounded-lg" placeholder="Enter Username" />
+    <label class="text-[#4A00FF]">Default: admin</label>
+
+        <!-- Password part-->
+    <label class="font-bold">Password</label>
+    <input id="password_input" maxlength="8" minlength="8" type="password" class="input w-full rounded-lg" placeholder="Enter Password" />
+     <label class="text-[#4A00FF]">Default: admin123</label>
+
+        <!-- Button -->
+    <button onclick="getValueFromInput('username_input','password_input')" class="btn btn-primary mt-4 rounded-lg">Sign In</button>
+    <div class="flex justify-center items-center gap-2">
+        <!-- step-03 : -->
+    <hr class="border-[50]  border-[#E4E4E7] w-30 ">  OR  <hr class="border-[50]  border-[#E4E4E7] w-30">
+    </div>
+
+    <!-- Step-04 : -->
+    <p class="text-[#64748B] text-center pt-3">Demo Credentials:</p>
+
+    <div class="bg-gray-200 p-5 text-center rounded-lg">
+        <h2><span class="font-bold">Username:</span> admin</h2>
+        <h2><span class="font-bold">Password:</span> admin123</h2>
+    </div>
+
+    </fieldset>
+    </div>
+    <script src="./script/index.js"></script>
+</body>
+</html>
