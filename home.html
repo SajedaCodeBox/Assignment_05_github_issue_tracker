@@ -70,11 +70,40 @@
    <!-- button section -->
   <section class=" my-6 w-11/12 mx-auto ">
     <div id="btndiv" class="bg-white p-4 rounded-xl shadow-sm">
-      <button onclick=" togglebtn ('all')" id="all" class="btn text-white btn-primary">All</button>
-      <button onclick="togglebtn ('open')" id="open" class="btn  ">Open</button>
-      <button onclick="togglebtn('closed')" id="closed" class="btn ">Closed</button>
+      <button onclick="filterissues('all'), togglebtn ('all')" id="all" class="btn text-white btn-primary">All</button>
+      <button onclick="filterissues('open'), togglebtn ('open')" id="open" class="btn  ">Open</button>
+      <button onclick="filterissues('closed'), togglebtn('closed')" id="closed" class="btn ">Closed</button>
     </div>
   </section>
+
+<!-- step-03 : -->
+  <section class="w-11/12 mx-auto">
+    <div class="bg-white p-4 rounded-xl shadow-sm flex justify-between">
+      <!-- left part -->
+      <div class="flex gap-2">
+        <div class="bg-slate-300 h-10 w-10  rounded-full "><img class="mx-auto p-1" src="./assets/Aperture.png" alt="">
+        </div>
+        <div>
+          <h2 class="font-semibold text-xl"><span id="totalIssue">0</span> Issues</h2>
+          <p class="text-[#64748B]">Track and manage your project issues</p>
+        </div>
+      </div>
+
+      <!-- right part -->
+      <div class="flex gap-2 justify-center items-center">
+        <div class="bg-green-600 h-3 w-3 rounded-lg"></div>
+        <p>Open</p>
+        <div class="bg-[#A855F7] h-3 w-3 rounded-lg "></div>
+        <p>Closed</p>
+      </div>
+  </section>
+
+  <!-- step-04 : -->
+   <!-- all issue container -->
+  <section id="all_issues_container" class="w-11/12 mx-auto bg-gray-200 grid  lg:grid-cols-4 sm:grid-cols-2">
+  </section>
+  
+
     <script src="./script/index.js"></script>
 </body>
 </html>
