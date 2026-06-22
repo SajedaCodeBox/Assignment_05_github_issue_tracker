@@ -39,7 +39,7 @@ const getValueFromInput = (id1, id2) => {
 
     // cart data loading:
     const loadIssues = async () => {
-         
+         manageSpinner (true);
     const url = ("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     const res = await fetch(url);
     const details = await res.json();
@@ -100,7 +100,7 @@ const getValueFromInput = (id1, id2) => {
         allIssuesContainer.append(card);
     })
    
-     
+     manageSpinner (false);
     }
 
 
@@ -132,7 +132,17 @@ const getValueFromInput = (id1, id2) => {
    return htmlElements.join(" ");
   };
 
-  
+  // Spinner
+    const manageSpinner = (status) => {
+    if (status == true) {
+      document.getElementById("spinner").classList.remove("hidden");
+      document.getElementById("all_issues_container").classList.add("hidden");
+    }
+    else {
+       document.getElementById("all_issues_container").classList.remove("hidden");
+      document.getElementById("spinner").classList.add("hidden");
+    }
+  }
 
   
   loadIssues();
