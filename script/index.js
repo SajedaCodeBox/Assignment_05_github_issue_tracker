@@ -99,7 +99,7 @@ const getValueFromInput = (id1, id2) => {
             `
         allIssuesContainer.append(card);
     })
-   
+    all_issue_count ();
      manageSpinner (false);
     }
 
@@ -117,7 +117,6 @@ const getValueFromInput = (id1, id2) => {
     }
 
 
-
     // step-04 :
    const createElements = (arr) => {
    const getLabelClass = (label) => {
@@ -132,6 +131,7 @@ const getValueFromInput = (id1, id2) => {
    return htmlElements.join(" ");
   };
 
+    // step-05
   // Spinner
     const manageSpinner = (status) => {
     if (status == true) {
@@ -143,6 +143,15 @@ const getValueFromInput = (id1, id2) => {
       document.getElementById("spinner").classList.add("hidden");
     }
   }
+
+    // step-06
+    // total_issue_count  
+  const all_issue_count = () => {
+        const totalIssue = document.getElementById('totalIssue');
+        const all_issues_container = document.getElementById('all_issues_container');
+        totalIssue.innerText = all_issues_container.children.length
+    }
+    
 
   
   loadIssues();
