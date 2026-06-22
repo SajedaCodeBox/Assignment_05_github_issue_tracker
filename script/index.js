@@ -17,3 +17,21 @@ const getValueFromInput = (id1, id2) => {
     }
     return (username_value, password_value);
     }
+
+
+// For home page
+// step :01
+// for button color changeing
+   const togglebtn = (id) => {
+    const allbtn = document.getElementById ('all');
+    const openbtn = document.getElementById ('open');
+    const closedbtn = document.getElementById ('closed');
+    allbtn.classList.remove('text-white', 'btn-primary');
+    openbtn.classList.remove('text-white', 'btn-primary');
+    closedbtn.classList.remove('text-white', 'btn-primary');
+    
+    const selected = document.getElementById (id);
+    selected.classList.add('text-white', 'btn-primary');
+
+
+   }
