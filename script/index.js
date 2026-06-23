@@ -156,4 +156,83 @@ const getValueFromInput = (id1, id2) => {
   
   loadIssues();
 
+
+
+    // step-07 Modal Part:
+//    Modal API Loading-
+    const loadWordDetails =async (id) => {
+      const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
+      
+      const res = await fetch (url);
+      const details = await res.json();
+      displayWordDetails (details.data);
+    }
+
+    // step-08:
+    // Modal API Display-
+    const  displayWordDetails = (word) => {
+         const detailsBox = document.getElementById ("details_container");
+         
+    // {
+    // "id": 1,
+    // "title": "Fix navigation menu on mobile devices",
+    // "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
+    // "status": "open",
+    // "labels": [
+    // "bug",
+    // "help wanted"
+    // ],
+    // "priority": "high",
+    // "author": "john_doe",
+    // "assignee": "jane_smith",
+    // "createdAt": "2024-01-15T10:30:00Z",
+    // "updatedAt": "2024-01-15T10:30:00Z"
+    // }
+        detailsBox.innerHTML = `
+         <h2 class="font-bold text-xl">${word.title}</h2>
+
+    <div class="flex gap-2  items-center">
+       <p class = "bg-green-600 text-white rounded-full p-2">Opened</p>
+        <div class="bg-gray-400 h-2 w-2 rounded-lg "></div>
+       <P class="text-gray-600">Opened by Fahim Ahmed</P>
+        <div class="bg-gray-400 h-2 w-2 rounded-lg"></div>
+       <P class="text-gray-600">22/02/2026</P>
+      </div>
+      <div class = "flex mr-3 gap-1 ">
+      ${createElements (word.labels)}
+        </div>
+        <p class= "text-gray-500">${word.description}</p>
+      <div class="flex gap-40  bg-gray-100 rounded-lg p-4">
+        <div>
+          <p class="text-gray-500">Assignee:</p>
+          <p>${word.assignee}</p>
+        </div>
+        <div>
+          <p class="text-gray-500">Priority:</p>
+         <p class="${word.priority === 'high' ? 'bg-[#EF4444] text-white': word.priority === 'medium' ? 'bg-[#FFF6D1] text-[#F59E0B]' : word.priority === 'low' ? 'bg-[#EEEFF2] text-[#9CA3AF]' : 'bg-gray-400 text-gray-500'} font-medium text-[14px] rounded-full p-2 py-1"> ${word.priority.toUpperCase()}</p>
+        </div>
+      </div>
+        `;
+        document.getElementById ("word_modal").showModal();
+    }
+    // step-09:
+// Search Button
+     document.getElementById("issue_Search").addEventListener("click", () => {
+     
+       const input = document.getElementById("input-search");
+      const searchValue = input.value.trim().toLowerCase();
+      console.log(searchValue);
+
+
+      fetch ("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+      .then ((res) => res.json())
+      .then ((data) => {
+        const allwords = data.data ;
+        console.log(allwords);
+       const filterwords = allwords.filter((word)=> word.title.toLowerCase().includes(searchValue));
+        
+       displayIssues(filterwords);
+      })
+    })
+
   
